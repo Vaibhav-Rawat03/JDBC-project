@@ -55,7 +55,7 @@ public class App implements A {
         Scanner sc=new Scanner(System.in);
         int sap=sc.nextInt();
         sc.nextLine();
-        stml.executeUpdate("delete from student where `SAP ID`="+sap+";");
+        stml.executeUpdate("delete from student where `id`="+sap+";");
         System.out.println("Command Executed...");
     }
     static void update() throws Exception
@@ -66,7 +66,7 @@ public class App implements A {
         System.out.println("Enter new Percentage ->");
         float percentage=sc.nextFloat();
         sc.nextLine();
-        String query="update student set Percentage="+percentage+" where `SAP ID`="+sap+";";
+        String query="update student set Percentage="+percentage+" where `id`="+sap+";";
         stml.executeUpdate(query);
         System.out.println("Updated Successfully...");
     }
@@ -112,6 +112,7 @@ public class App implements A {
             }
             catch(SQLException e)
             {
+                e.printStackTrace();
                 System.out.println("Connectivity Error...");
                 break;
             }
